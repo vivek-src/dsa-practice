@@ -2,7 +2,7 @@ package stringBuilder;
 
 public class CheckPalindrome {
     static void main() {
-        String str = "abdcdba";
+        String str = "Radar";
         if (checkPalindrome(str)) {
             System.out.println(str + " is a Palindrome");
         } else {
@@ -11,11 +11,14 @@ public class CheckPalindrome {
 
     }
     static boolean checkPalindrome(String str) {
-        String[] strArr = str.split("");
+        if (str == null || str.length() == 0) {
+            return false;
+        }
+        str = str.toLowerCase();
         int start = 0;
-        int end = strArr.length - 1;
+        int end = str.length() - 1;
         while (start < end) {
-            if (strArr[start].equals(strArr[end])) {
+            if (str.charAt(start) == (str.charAt(end))) {
                 start++;
                 end--;
             }else  {
