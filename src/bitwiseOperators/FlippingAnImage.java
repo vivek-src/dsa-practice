@@ -13,27 +13,43 @@ public class FlippingAnImage {
         }
 
     }
-    static int[][] Flipimage(int[][] arr){
-        for (int i = 0; i < arr.length; i++) {
-            reverseArr(arr[i]);
-            for (int j = 0; j < arr[i].length; j++) {
-                arr[i][j] ^= 1;
+    static int[][] Flipimage(int[][] image){
+        for (int[] row : image) {
+            int left = 0;
+            int right = row.length - 1;
+
+            while (left <= right) {
+                int temp = row[left] ^ 1;
+                row[left] = row[right] ^ 1;
+                row[right] = temp;
+
+                left++;
+                right--;
             }
         }
-        return arr;
-
+        return image;
     }
-
-    static void reverseArr(int[] arr){
-        int start = 0;
-        int end = arr.length-1;
-        int temp;
-        while (start < end){
-            temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-            start ++;
-            end--;
-        }
-    }
+//    static int[][] Flipimage(int[][] arr){
+//        for (int i = 0; i < arr.length; i++) {
+//            reverseArr(arr[i]);
+//            for (int j = 0; j < arr[i].length; j++) {
+//                arr[i][j] ^= 1;
+//            }
+//        }
+//        return arr;
+//
+//    }
+//
+//    static void reverseArr(int[] arr){
+//        int start = 0;
+//        int end = arr.length-1;
+//        int temp;
+//        while (start < end){
+//            temp = arr[start];
+//            arr[start] = arr[end];
+//            arr[end] = temp;
+//            start ++;
+//            end--;
+//        }
+//    }
 }
