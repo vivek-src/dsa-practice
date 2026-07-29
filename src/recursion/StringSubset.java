@@ -1,6 +1,6 @@
 package recursion;
 
-public class Subset {
+public class StringSubset {
     static void main() {
         String a = "abaccabgcd";
         System.out.println(a);
