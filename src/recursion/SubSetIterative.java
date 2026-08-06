@@ -1,12 +1,13 @@
 package recursion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SubSetIterative {
     static void main() {
-        int[] arr = {1,2,3};
-        List<List<Integer>> subset = Subset(arr);
+        int[] arr = {1,2,2};
+        List<List<Integer>> subset = SubsetsDuplicate(arr);
         for(List<Integer> element : subset){
             System.out.println(element);
         }
@@ -27,4 +28,5 @@ public class SubSetIterative {
         return ans;
 
     }
+z
 }
