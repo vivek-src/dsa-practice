@@ -13,7 +13,7 @@ public class SubSetIterative {
         }
 
     }
-    static List<List<Integer>> Subset(int[] arr){
+    static List<List<Integer>> SubsetsDuplicate(int[] arr){
         List<List<Integer>> ans = new ArrayList<>();
         ans.add(new ArrayList<>());
         for(int num : arr){
@@ -28,5 +28,4 @@ public class SubSetIterative {
         return ans;
 
     }
-z
 }
