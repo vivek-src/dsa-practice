@@ -20,8 +20,8 @@ public class DicethrowCombo {
             return 1;
         }
         int ans = 0;
-        for (int i = 1; i < side && i <= target; i ++){
-            ans = getNoRolls(p + i, side, target - i);
+        for (int i = 1; i <= side && i <= target; i ++){
+            ans += getNoRolls(p + i, side, target - i);
         }
         return ans;
     }
