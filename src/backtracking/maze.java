@@ -8,7 +8,12 @@ public class maze {
 //        printPaths("",3,3);
 //        System.out.println(getPaths("", 3,3));
 //        printPathsDiag("",3,3);
-        printPathObstruction("",3,3);
+        boolean[][] grid = {
+                {true, true, true},
+                {true, false, true},
+                {true, true, true}
+        };
+        printPathObstruction("",0,0,grid);
     }
     static int noOfPaths(int r,int c){
         if(r == 1 || c == 1){
@@ -46,20 +51,20 @@ public class maze {
         }
     }
     //Suppose there is an obstruction at 2,2
-    static void printPathObstruction(String p, int r, int c){
-        if (r == 1 && c == 1){
+    static void printPathObstruction(String p, int r, int c, boolean[][] grid){
+        if (r == grid.length-1 && c == grid[0].length-1){
             System.out.println(p);;
-        } else if (r == 2 && c == 2) {
+        } else if (!grid[r][c]) {
             return;
         }
-        if(c > 1){
-            printPathObstruction(p+"R", r, c-1);
+        if(c < grid[0].length-1){
+            printPathObstruction(p+"R", r, c+1,grid);
         }
-        if(r > 1){
-            printPathObstruction(p+"D", r-1, c);
+        if(r < grid.length-1){
+            printPathObstruction(p+"D", r+1, c,grid);
         }
-        if(r > 1 && c > 1){
-            printPathObstruction(p+"dg", r-1,c-1);
+        if(r < grid.length-1 && c < grid[0].length-1){
+            printPathObstruction(p+"dg", r+1,c+1,grid);
         }
     }
     static ArrayList<String> getPaths(String p, int r, int c){
