@@ -6,7 +6,8 @@ public class maze {
     static void main() {
 //        System.out.println(noOfPaths(3,3));
 //        printPaths("",3,3);
-        System.out.println(getPaths("", 3,3));
+//        System.out.println(getPaths("", 3,3));
+        printPathsDiag("",3,3);
     }
     static int noOfPaths(int r,int c){
         if(r == 1 || c == 1){
@@ -27,6 +28,20 @@ public class maze {
         }
         if(r > 1){
             printPaths(p+"D", r-1, c);
+        }
+    }
+    static void printPathsDiag(String p, int r, int c){
+        if (r == 1 && c == 1){
+            System.out.println(p);;
+        }
+        if(c > 1){
+            printPathsDiag(p+"R", r, c-1);
+        }
+        if(r > 1){
+            printPathsDiag(p+"D", r-1, c);
+        }
+        if(r > 1 && c > 1){
+            printPathsDiag(p+"dg", r-1,c-1);
         }
     }
     static ArrayList<String> getPaths(String p, int r, int c){
