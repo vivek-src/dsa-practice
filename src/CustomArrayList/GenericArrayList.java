@@ -2,6 +2,8 @@ package CustomArrayList;
 
 import java.util.Arrays;
 
+//Example of Wildcard
+//public class GenericArrayList<T extends Number> //here T can be all the subclass or Number Class
 public class GenericArrayList<T> {
     private Object[] data;
     private static final int DEFAULT_SIZE = 10;
