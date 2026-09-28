@@ -47,6 +47,22 @@ public class DoublyLL {
         size++;
     }
 
+    public void insert(int index, int val){
+        if(index == 0){
+            addFirst(val);
+            return;
+        }else if (index == size){
+            addLast(val);
+            return;
+        }
+        Node node = getRef(index);
+        Node newNode = new Node(val);
+        newNode.next = node;
+        node.prev.next = newNode;
+        newNode.prev = node.prev;
+        node.prev = newNode;
+    }
+
 
     private Node getRef(int index){
         Node temp = head;
@@ -95,5 +111,9 @@ public class DoublyLL {
         list.displayReverse();
 
         System.out.println("Size: " + list.size);
+
+        list.insert(1,20);
+        list.insert(1,200);
+        list.display();
     }
 }
