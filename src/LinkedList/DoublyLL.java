@@ -48,6 +48,9 @@ public class DoublyLL {
     }
 
     public void insert(int index, int val){
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
         if(index == 0){
             addFirst(val);
             return;
@@ -61,6 +64,7 @@ public class DoublyLL {
         node.prev.next = newNode;
         newNode.prev = node.prev;
         node.prev = newNode;
+        size++;
     }
 
 
@@ -112,8 +116,8 @@ public class DoublyLL {
 
         System.out.println("Size: " + list.size);
 
-        list.insert(1,20);
-        list.insert(1,200);
+        list.insert(5,20);
+        list.insert(0,200);
         list.display();
     }
 }
