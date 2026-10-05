@@ -20,8 +20,11 @@ public class Main {
         LL.display();
         LL.delete(1);
         LL.display();
-        int index = LL.find(2110);
-        System.out.println(index);
+//        int index = LL.find(2110);
+//        System.out.println(index);
+        LL.insertRec(1,220);
+        LL.insertRec(1,230);
+        LL.display();
     }
 
 }

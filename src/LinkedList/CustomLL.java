@@ -65,6 +65,20 @@ public class CustomLL {
         temp.next = node;
         size++;
     }
+
+    //insert using Recursion
+    public void insertRec(int index, int value){
+        head = insertRec(index, value, head);
+    }
+    private Node insertRec(int index, int value, Node node){
+        if(index == 0){
+            Node temp = new Node(value, node);
+            size++;
+            return temp;
+        }
+        node.next = insertRec(index-1, value, node.next);
+        return node;
+    }
     public void deleteFirst(){
             head = head.next;
             if (head == null) {
