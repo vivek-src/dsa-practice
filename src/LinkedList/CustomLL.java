@@ -114,6 +114,22 @@ public class CustomLL {
 
     }
 
+    //https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+    // 83. Remove Duplicates from Sorted List
+    public void deleteDuplicates() {
+        Node node = head;
+        while (node.next != null){
+            if (node.value == node.next.value){
+                node.next = node.next.next;
+                size--;
+            }else {
+                node = node.next;
+            }
+        }
+        tail = node;
+        tail.next = null;
+    };
+
     public Node getRef(int index){
         Node temp = head;
         for (int i = 0; i < index; i++) {
