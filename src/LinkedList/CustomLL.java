@@ -130,6 +130,33 @@ public class CustomLL {
         tail.next = null;
     };
 
+    //21. Merge Two Sorted Lists
+    //https://leetcode.com/problems/merge-two-sorted-lists/description/
+    public static CustomLL merge(CustomLL first, CustomLL second){
+        Node head1 = first.head;
+        Node head2 = second.head;
+        CustomLL list = new CustomLL();
+        while(head1 != null && head2 != null){
+            if(head1.value < head2.value){
+                list.addLast(head1.value);
+                head1 = head1.next;
+            } else{
+                list.addLast(head2.value);
+                head2 = head2.next;
+            }
+        }
+        while (head1 != null) {
+            list.addLast(head1.value);
+            head1 = head1.next;
+        }
+
+        while (head2 != null) {
+            list.addLast(head2.value);
+            head2 = head2.next;
+        }
+        return list;
+    }
+
     public Node getRef(int index){
         Node temp = head;
         for (int i = 0; i < index; i++) {

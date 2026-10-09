@@ -27,16 +27,27 @@ public class Main {
 //        LL.display();
 
         LL.addLast(1);
-        LL.addLast(1);
-        LL.addLast(1);
-        LL.addLast(2);
-        LL.addLast(2);
         LL.addLast(3);
         LL.addLast(4);
-        LL.addLast(4);
+        LL.addLast(6);
+        LL.addLast(9);
+        LL.addLast(13);
+        LL.addLast(34);
         LL.display();
-        LL.deleteDuplicates();
-        LL.display();
+//        LL.deleteDuplicates();
+//        LL.display();
+
+        CustomLL LL2 = new CustomLL();
+        LL2.addLast(1);
+        LL2.addLast(1);
+        LL2.addLast(5);
+        LL2.addLast(6);
+        LL2.addLast(7);
+        LL2.display();
+
+        CustomLL Merged = CustomLL.merge(LL2, LL);
+        System.out.println("Lists after Merging: ");
+        Merged.display();
     }
 
 }
