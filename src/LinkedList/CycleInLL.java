@@ -53,6 +53,25 @@ public class CycleInLL {
         return 0;
     }
 
+    public ListNode getStartingNode(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (fast == slow){
+                slow = head; // Take either to the head
+                while (fast != slow){
+                    fast = fast.next;
+                    slow = slow.next;
+                }
+                return fast; // Starting Point of the Cycle
+            }
+        }
+        return null;
+    }
     public static void main(String[] args) {
         // Create linked list: 3 -> 2 -> 0 -> -4
         ListNode head = new ListNode(1);
@@ -70,5 +89,7 @@ public class CycleInLL {
 
         System.out.println(solution.hasCycle(head)); // true
         System.out.println("Length of Cycle : "+solution.cycleLenght(head)); // true
+        System.out.println("Starting Node of Cycle : "+solution.getStartingNode(head).val); // true
+
     }
 }
