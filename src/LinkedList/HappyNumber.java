@@ -2,11 +2,7 @@
 // https://leetcode.com/problems/happy-number/description/
 package LinkedList;
 
-
-import java.sql.SQLOutput;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.TreeMap;
 
 public class HappyNumber {
 
