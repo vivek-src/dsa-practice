@@ -1,18 +1,15 @@
 package LinkedList;
 
 public class SortLL {
-    static ListNode getMid(ListNode head) {
-        ListNode midPrev = null;
+    static ListNode middleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head.next; // Return the first middle node in case of even nodes
 
-        while (head != null && head.next != null) {
-            midPrev = (midPrev == null) ? head : midPrev.next;
-            head = head.next.next;
+        while (fast != null && fast.next!= null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
-
-        ListNode mid = midPrev.next;
-        midPrev.next = null;
-
-        return mid;
+        return slow;
     }
 
     static ListNode merge(ListNode first, ListNode second) {
@@ -43,11 +40,12 @@ public class SortLL {
         if (head == null || head.next == null){
             return head;
         }
-        ListNode mid = getMid(head);
-        ListNode left = mergeSort(head);
-        ListNode right = mergeSort(mid);
+        ListNode mid = middleNode(head);
+        ListNode left = head;
+        ListNode right = mid.next;
+        mid.next =null;
 
-        return merge(left, right);
+        return merge(mergeSort(left), mergeSort(right));
     }
 
     static void main() {
@@ -64,8 +62,7 @@ public class SortLL {
             System.out.print(temp.val+ "-> ");
             temp = temp.next;
         }
-        System.out.print("END");
-        System.out.println();
+        System.out.print("END\n");
 
         head = mergeSort(head);
 
